@@ -22,10 +22,10 @@
 
 ```bash
 # with npm
-npm install @noshot/env
+npm install git@github.com:mattcarlotta/example-env.git
 
 # or with yarn
-yarn add @noshot/env
+yarn add git@github.com:mattcarlotta/example-env.git
 ```
 
 ## Decrypt Method
