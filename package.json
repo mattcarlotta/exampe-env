@@ -5,7 +5,7 @@
   "main": "index.js",
   "module": "esm/index.mjs",
   "sideEffects": false,
-  "homepage": "https://github.com/no-shot/env#readme",
+  "homepage": "https://github.com/mattcarlotta/example-env#readme",
   "files": [
     "index.js",
     "index.d.ts",
@@ -71,7 +71,7 @@
   "author": "Matt Carlotta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/example-env/issues"
+    "url": "https://github.com/mattcarlotta/example-env/issues"
   },
   "engines": {
     "node": ">=12"
