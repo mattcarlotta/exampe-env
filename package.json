@@ -1,6 +1,6 @@
 {
   "name": "@example/env",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Loading byte sized ENVs made simple.",
   "main": "index.js",
   "module": "esm/index.mjs",
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/example-env.git"
+    "url": "git@github.com:mattcarlotta/example-env.git"
   },
   "keywords": [
     "env",
