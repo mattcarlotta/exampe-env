@@ -28,7 +28,7 @@
     "build:types": "npm run remove:types && tsc --p ./ts/tsconfig.types.json",
     "lint": "eslint ./ --ext .ts,.js",
     "lint:types": "tsd",
-    "postinstall": "npm run build && npm run build:esm",
+    "prepare": "npm run build && npm run build:esm",
     "remove": "ts-node ./utils/removeBuild.ts",
     "remove:all": "npm run remove:build && npm run remove:esm",
     "remove:build": "npm run remove && npm run remove:types",
