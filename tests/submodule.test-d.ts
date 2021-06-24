@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
-import decrypt, { decrypt as decryptConfig } from "@example/env/decrypt";
-import encrypt, { encrypt as encryptConfig } from "@example/env/encrypt";
+import decrypt, { decrypt as decryptConfig } from "example-env/decrypt";
+import encrypt, { encrypt as encryptConfig } from "example-env/encrypt";
 
 // DECRYPT DEFAULT IMPORT
 const { decryptedEnvs, decryptedResult} = decrypt({

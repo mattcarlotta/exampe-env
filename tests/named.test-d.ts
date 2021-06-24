@@ -1,5 +1,5 @@
 import { expectType } from "tsd";
-import { decrypt, encrypt } from "@example/env";
+import { decrypt, encrypt } from "example-env";
 
 // DECRYPT
 const { decryptedEnvs, decryptedResult} = decrypt({

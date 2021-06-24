@@ -1,5 +1,5 @@
 {
-  "name": "@example/env",
+  "name": "example-env",
   "version": "0.0.1",
   "description": "Loading byte sized ENVs made simple.",
   "main": "index.js",
@@ -45,10 +45,10 @@
       "target": "esnext",
       "baseUrl": ".",
       "paths": {
-        "@example/env": [
+        "example-env": [
           "."
         ],
-        "@example/env/*": [
+        "example-env/*": [
           "./*"
         ]
       }
