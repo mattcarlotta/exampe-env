@@ -1,40 +1,6 @@
 import { expectType } from "tsd";
-import assign, { assignEnvs } from "@noshot/env/assign";
-import config, { config as setConfig } from "@noshot/env/config";
-import decrypt, { decrypt as decryptConfig } from "@noshot/env/decrypt";
-import encrypt, { encrypt as encryptConfig } from "@noshot/env/encrypt";
-import load, { load as loadConfig } from "@noshot/env/load";
-import parse, { parse as parseConfig } from "@noshot/env/parse";
-import type { ConfigOptions, ParsedEnvs, ProcessEnv } from "@noshot/env";
-
-// CONFIG DEFAULT IMPORT
-const result = config();
-expectType<string>(result.parsed["ROOT"]);
-
-const { parsed, extracted } = config({
-  dir: "tests",
-  paths: ".env-example",
-  encoding: "utf8",
-  debug: true
-});
-
-expectType<ProcessEnv>(parsed);
-expectType<string>(parsed["BASE"]);
-expectType<ParsedEnvs>(extracted);
-expectType<string>(extracted["BASE"]);
-
-// CONFIG NAMED IMPORT
-const { parsed: parsed2, extracted: extracted2 } = setConfig({
-  dir: "tests",
-  paths: ".env-example",
-  encoding: "utf8",
-  debug: true
-});
-
-expectType<ProcessEnv>(parsed2);
-expectType<string>(parsed2["BASE"]);
-expectType<ParsedEnvs>(extracted2);
-expectType<string>(extracted2["BASE"]);
+import decrypt, { decrypt as decryptConfig } from "@example/env/decrypt";
+import encrypt, { encrypt as encryptConfig } from "@example/env/encrypt";
 
 // DECRYPT DEFAULT IMPORT
 const { decryptedEnvs, decryptedResult} = decrypt({
@@ -89,35 +55,3 @@ const { encryptedEvs: encryptedEvs2, iv: iv2} = encryptConfig({
 
 expectType<string>(encryptedEvs2);
 expectType<string>(iv2);
-
-
-// LOAD DEFAULT IMPORT
-expectType<ConfigOptions>(load("test"));
-const envConfig = load("test");
-expectType<ConfigOptions>(envConfig);
-expectType<string>(envConfig["dir"] as string);
-
-// LOAD NAMED IMPORT
-expectType<ConfigOptions>(loadConfig("test"));
-const envConfig2 = loadConfig("test");
-expectType<ConfigOptions>(envConfig2);
-expectType<string>(envConfig2["dir"] as string);
-
-// PARSE DEFAULT IMPORT
-expectType<ParsedEnvs>(parse("NODE_ENV=production\nDB_HOST=a.b.c"));
-
-const parsedEnvs = parse(Buffer.from("JUSTICE=league\n"));
-expectType<ParsedEnvs>(parsedEnvs);
-expectType<ProcessEnv>(assign(parsedEnvs))
-expectType<ProcessEnv>(assignEnvs(parsedEnvs))
-
-// PARSE NAMED IMPORT
-expectType<ParsedEnvs>(parseConfig("NODE_ENV=production\nDB_HOST=a.b.c"));
-
-const parsedEnvs2 = parseConfig(Buffer.from("JUSTICE=league\n"));
-expectType<ParsedEnvs>(parsedEnvs2);
-
-// ASSIGN DEFAULT IMPORT
-expectType<ProcessEnv>(assign(parsedEnvs2))
-// ASSIGN NAMED IMPORT
-expectType<ProcessEnv>(assignEnvs(parsedEnvs2))

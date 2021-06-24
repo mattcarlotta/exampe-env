@@ -1,6 +1,6 @@
 {
-  "name": "@noshot/env",
-  "version": "2.1.1",
+  "name": "@example/env",
+  "version": "0.0.1",
   "description": "Loading byte sized ENVs made simple.",
   "main": "index.js",
   "module": "esm/index.mjs",
@@ -9,63 +9,34 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "assign/index.js",
-    "assign/index.d.ts",
-    "config/index.js",
-    "config/index.d.ts",
-    "decrypt/index.js",
-    "decrypt/index.d.ts",
     "encrypt/index.js",
     "encrypt/index.d.ts",
-    "fileExists/index.js",
-    "fileExists/index.d.ts",
-    "getFilePath/index.js",
-    "getFilePath/index.d.ts",
-    "load/index.js",
-    "load/index.d.ts",
-    "log/index.js",
-    "log/index.d.ts",
-    "parse/index.js",
-    "parse/index.d.ts",
     "esm"
   ],
   "types": "./index.d.ts",
   "exports": {
     ".": "./index.js",
-    "./assign": "./assign/index.js",
-    "./config": "./config/index.js",
     "./decrypt": "./decrypt/index.js",
     "./encrypt": "./encrypt/index.js",
-    "./fileExists": "./fileExists/index.js",
-    "./getFilePath": "./getFilePath/index.js",
-    "./load": "./load/index.js",
-    "./log": "./log/index.js",
-    "./parse": "./parse/index.js",
     "./esm": "./esm/index.mjs",
-    "./esm/assign": "./esm/assign/index.mjs",
-    "./esm/config": "./esm/config/index.mjs",
     "./esm/decrypt": "./esm/decrypt/index.mjs",
-    "./esm/encrypt": "./esm/encrypt/index.mjs",
-    "./esm/fileExists": "./esm/fileExists/index.mjs",
-    "./esm/getFilePath": "./esm/getFilePath/index.mjs",
-    "./esm/load": "./esm/load/index.mjs",
-    "./esm/log": "./esm/log/index.mjs",
-    "./esm/parse": "./esm/parse/index.mjs"
+    "./esm/encrypt": "./esm/encrypt/index.mjs"
   },
   "scripts": {
-    "b": "npm run r:b && tsc --p ./ts/tsconfig.cjs.json && ts-node ./utils/compress.ts",
-    "b:esm": "npm run r:esm && rollup -c",
-    "b:types": "npm run r:types && tsc --p ./ts/tsconfig.types.json",
-    "l": "eslint ./ --ext .ts,.js",
-    "l:types": "tsd",
-    "r": "ts-node ./utils/removeBuild.ts",
-    "r:all": "npm run r:b && npm run r:esm",
-    "r:b": "npm run r && npm run r:types",
-    "r:esm": "rimraf esm",
-    "r:types": "ts-node ./utils/removeTypes.ts",
-    "t": "jest --config ./jest.json",
-    "t:cov": "jest --config ./jest.json --coverage",
-    "t:watch": "jest --config ./jest.json --watchAll"
+    "build": "npm run remove:build && tsc --p ./ts/tsconfig.cjs.json && ts-node ./utils/compress.ts",
+    "build:esm": "npm run remove:esm && rollup -c",
+    "build:types": "npm run remove:types && tsc --p ./ts/tsconfig.types.json",
+    "lint": "eslint ./ --ext .ts,.js",
+    "lint:types": "tsd",
+    "postinstall": "npm run build && npm run build:esm",
+    "remove": "ts-node ./utils/removeBuild.ts",
+    "remove:all": "npm run remove:build && npm run remove:esm",
+    "remove:build": "npm run remove && npm run remove:types",
+    "remove:esm": "rimraf esm",
+    "remove:types": "ts-node ./utils/removeTypes.ts",
+    "test": "jest --config ./jest.json",
+    "test:cov": "jest --config ./jest.json --coverage",
+    "test:watch": "jest --config ./jest.json --watchAll"
   },
   "tsd": {
     "directory": "tests",
@@ -74,10 +45,10 @@
       "target": "esnext",
       "baseUrl": ".",
       "paths": {
-        "@noshot/env": [
+        "@example/env": [
           "."
         ],
-        "@noshot/env/*": [
+        "@example/env/*": [
           "./*"
         ]
       }
@@ -85,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/no-shot/env.git"
+    "url": "git+ssh://git@github.com/example-env.git"
   },
   "keywords": [
     "env",
@@ -98,7 +69,7 @@
   "author": "Matt Carlotta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/no-shot/env/issues"
+    "url": "https://github.com/example-env/issues"
   },
   "engines": {
     "node": ">=12"

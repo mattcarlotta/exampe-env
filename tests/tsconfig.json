@@ -10,8 +10,8 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@noshot/env": ["../"],
-      "@noshot/env/*": ["../*"]
+      "@example/env": ["../"],
+      "@example/env/*": ["../*"]
     }
   }
 }

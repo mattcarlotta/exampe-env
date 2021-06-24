@@ -1,22 +1,5 @@
 import { expectType } from "tsd";
-import { assign, config, decrypt, encrypt, load, parse } from "@noshot/env";
-import type { ConfigOptions, ParsedEnvs, ProcessEnv } from "@noshot/env";
-
-// CONFIG
-const result = config();
-expectType<string>(result.parsed["ROOT"]);
-
-const { parsed, extracted } = config({
-  dir: "tests",
-  paths: ".env-example",
-  encoding: "utf8",
-  debug: true
-});
-
-expectType<ProcessEnv>(parsed);
-expectType<string>(parsed["BASE"]);
-expectType<ParsedEnvs>(extracted);
-expectType<string>(extracted["BASE"]);
+import { decrypt, encrypt } from "@example/env";
 
 // DECRYPT
 const { decryptedEnvs, decryptedResult} = decrypt({
@@ -49,15 +32,4 @@ expectType<string>(encryptedEvs);
 expectType<string>(iv);
 
 
-// LOAD
-expectType<ConfigOptions>(load("test"));
-const envConfig = load("test");
-expectType<ConfigOptions>(envConfig);
-expectType<string>(envConfig["dir"] as string);
 
-// PARSE
-expectType<ParsedEnvs>(parse("NODE_ENV=production\nDB_HOST=a.b.c"));
-
-const parsedEnvs = parse(Buffer.from("JUSTICE=league\n"));
-expectType<ParsedEnvs>(parsedEnvs);
-expectType<ProcessEnv>(assign(parsedEnvs))
