@@ -9,6 +9,8 @@
   "files": [
     "index.js",
     "index.d.ts",
+    "decrypt/index.js",
+    "decrypt/index.d.ts",
     "encrypt/index.js",
     "encrypt/index.d.ts",
     "esm"
